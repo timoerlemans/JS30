@@ -1,0 +1,12 @@
+{
+  "hosts": [
+    "js30.ebox",
+    "www.js30.ebox"
+  ],
+  "webroot": "",
+  "database": {
+    "name": "pj_js30",
+    "user": "js30",
+    "password": "js30"
+  }
+}
