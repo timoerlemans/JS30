@@ -52,6 +52,21 @@
             transform-origin: 100%;
             transform: rotate(90deg);
             transition: all 0.05s;
+            border-radius: 5px;
+        }
+
+        .second-hand {
+            z-index: 4;
+        }
+
+        .min-hand {
+            background: green;
+            z-index: 3;
+        }
+
+        .hour-hand {
+            background: red;
+            z-index: 2;
         }
 
     </style>
@@ -67,7 +82,20 @@
 </div>
 
 <script>
+    function setDate() {
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const secondsDegrees = ((seconds / 60) * 360) + 90;
+        const minutes = now.getMinutes();
+        const hours = now.getHours();
+        const minutesDegrees = ((minutes / 60) * 360) + 90;
+        const hoursDegrees = ((hours / 12) * 360) + 90;
+        document.querySelector('.second-hand').style.transform = 'rotate(' + secondsDegrees + 'deg)';
+        document.querySelector('.min-hand').style.transform = 'rotate(' + minutesDegrees + 'deg)';
+        document.querySelector('.hour-hand').style.transform = 'rotate(' + hoursDegrees + 'deg)';
+    }
 
+    setInterval(setDate, 1000);
 </script>
 
 </body>
